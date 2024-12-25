@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to the Rajput (UMATH) Family Webpage - Explore our family tree, gallery, and history">
+    <meta name="keywords" content="Rajput family, UMATH family, family tree, family history">
+    <title>Rajput Family Webpage</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/000000/castle.png">
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+    
+    <header class="animate__animated animate__fadeIn">
+        <h1><i class="fas fa-crown"></i> Welcome to the ⚔️Rajput⚔️ (UMATH) Family Webpage</h1>
+        <nav>
+            <button onclick="showAboutUs()" class="nav-btn"><i class="fas fa-users"></i> About Us</button>
+            <button onclick="showFamilyTree()" class="nav-btn"><i class="fas fa-tree"></i> Family Tree</button>
+            <button onclick="showGallery()" class="nav-btn"><i class="fas fa-images"></i> Gallery</button>
+            <button onclick="showProfiles()" class="nav-btn"><i class="fas fa-user-circle"></i> 13 Members</button>
+            <button onclick="logout()" class="nav-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            <button class="nav-btn" ><a href="portfolio/index.html">VIEW DEVLOPER</a></button>
+        </nav>
+    </header>
+
+    <main id="content" class="animate__animated animate__fadeIn">
+        <div class="welcome-content">
+            <div class="welcome-image">
+                <img src="https://img.icons8.com/color/240/000000/castle.png" alt="Family Crest" class="family-crest">
+            </div>
+            <p class="welcome-text">Welcome to our family's digital home. Explore our rich history, browse through memories, and connect with our heritage.</p>
+        </div>
+    </main>
+
+    <script>
+        // Check if user is logged in
+        function checkLogin() {
+            const currentUser = localStorage.getItem('currentUser');
+            if (!currentUser) {
+                window.location.href = 'login.html';
+            }
+        }
+
+        // Call checkLogin when page loads
+        window.addEventListener('DOMContentLoaded', checkLogin);
+
+        // Add logout function
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = 'login.html';
+        }
+
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        const contentElement = document.getElementById('content');
+        
+        function showLoading() {
+            loadingOverlay.style.display = 'flex';
+        }
+        
+        function hideLoading() {
+            loadingOverlay.style.display = 'none';
+        }
+        
+        async function updateContent(content) {
+            await new Promise(resolve => setTimeout(resolve, 500));
+            contentElement.innerHTML = content;
+        }
+
+        async function showAboutUs() {
+            showLoading();
+            const aboutUsContent = `
+                <div class="about-us animate__animated animate__fadeIn">
+                    <h2>About Us</h2>
+                    <p class="welcome-text mb-2">This is the detailed family history of the Rajput family:</p>
+                    <ul>
+                        <li><i class="fas fa-users"></i> <b>SW. shree Amar Singh Ji Umath</b> had two sons <b>SW. Shree Fateh Singh Ji Umath</b> and <b>SW. Shree Mool Singh Ji Umath</b></li>
+                        <li><i class="fas fa-users"></i> <b>SW. Shree Fateh Singh Ji Umath</b> and <b>SW. Shree Mool Singh Ji Umath</b> was two brothers.</li>
+                        <li><i class="fas fa-user"></i> SW. Shree Fateh Singh Ji Umath has three sons: <b>Th. Sa. Bhawar Singh Ji Umath</b>, <b>Th. Sa. Sajaan Singh Ji Umath</b>, and <b>Th. Sa. Bhagwan Singh Ji Umath</b>.
+                        <ul>
+                        <li><i class="fas fa-user"></i> Th. Sa. Bhawar Singh Ji Umath has a son <b>Ku. Sa. Bahadur Singh Ji Umath</b>, who has two sons:
+                        <ul>
+                            <li><b>Vikram Singh</b> (father of <b>Ranvijay Bana</b>)</li>
+                            <li><b>Ravi (Bittu) Bana</b></li>
+                        </ul>
+                        </li>
+                        <li><i class="fas fa-users"></i> Th. Sa. Sajaan Singh Ji Umath has three sons:
+                        <ul>
+                            <li><b>Ku. Sa. Prem Singh Ji Umath</b> (father of <b>Arjun Singh</b> (father of <b>Patoni</b>) and <b>Shivpal Bana</b>)</li>
+                            <li><b>Ku. Sa. Lalsingh Ji Umath</b> (father of <b>Suraj Singh</b> and <b>Baldev (Kanha) Bana</b>)</li>
+                            <li><b>Ku. Sa. Meharban Singh Ji Umath</b> (father of <b>Balveer Singh</b> (father of <b>Lallan</b> and <b>Chota Lallan</b>) and <b>Yogendra Bana</b>)</li>
+                        </ul>
+                        </li>
+                        <li><i class="fas fa-user-friends"></i> Th. Sa. Bhagwan Singh Ji Umath has two sons:
+                        <ul>
+                            <li><b>Ku. Sa Inder Singh</b> (father of <b>Chhotu</b>)</li>
+                            <li><b>Ku. Sa. Bhupendra Bana</b></li>
+                        </ul>
+                        </li>
+                        </ul>
+                        </li>
+                        <li><i class="fas fa-users"></i> SW. Shree Mool Singh Ji Umath has two sons: <b>Th. Sa. Devisingh Ji Umath</b> and <b>Th. Sa. Kamal Singh Ji Umath</b>.
+                        <ul>
+                        <li><i class="fas fa-user-friends"></i> Th. Sa. Devisingh Ji Umath has two sons:
+                        <ul>
+                            <li><b>Ku. Sa. Lakhan Singh Ji Umath</b> (father of <b>Ujjwal Singh</b>)</li>
+                            <li><b>Ku. Sa. Alkar Singh Ji Umath</b> (father of <b>Rajpal Bana</b>)</li>
+                        </ul>
+                        </li>
+                        <li><i class="fas fa-user-friends"></i> Th. Sa. Kamal Singh Ji Umath has two sons:
+                        <ul>
+                            <li><b>Ku. Sa. Rajendra Singh Ji Umath</b> (father of <b>Chota Kanha</b> and <b>Vijaypal</b>)</li>
+                            <li><b>Ku. Sa. Uday Singh Ji Umath</b> (father of <b>Chota Chora</b>)</li>
+                        </ul>
+                        </li>
+                        </ul>
+                        </li>
+                    </ul>
+
+            `;
+            await updateContent(aboutUsContent);
+            hideLoading();
+        }
+
+        async function showFamilyTree() {
+            showLoading();
+            const familyTreeContent = `
+                <div class="family-tree animate__animated animate__fadeIn">
+                    <h2>Family Tree</h2>
+                    <pre>
+                        SW. SHREE AMAR SINGH JI UMATH
+                          |-- SW. SHREE FATEH SINGH JI UMATH
+                          |-- SW. SHREE MOOLSINGH JI UMATH
+
+                            |-- SW. SHREE FATEH SINGH JI UMATH 
+                                |-- TH. SA. BHAWAR SINGH JI UMATH 
+                                |     |-- KU. SA. BAHADUR SINGH JI UMATH 
+                                |           |-- VIKRAM SINGH 
+                                |           |     |-- RANVIJAY BANA
+                                |           |-- RAVI (BITTU) BANA
+                                |-- TH. SA. SAJAAN SINGH JI UMATH 
+                                |     |-- KU. SA. PREM SINGH JI UMATH 
+                                |     |     |-- ARJUN SINGH
+                                |     |     |     |-- PATONI
+                                |     |     |-- SHIVPAL BANA
+                                |     |-- KU. SA. LALSINGH JI UMATH 
+                                |     |     |-- SURAJ SINGH
+                                |     |     |-- BALDEV (KANHA) BANA
+                                |     |-- KU. SA. MEHARBAN SINGH JI UMATH 
+                                |           |-- BALVEER SINGH 
+                                |           |     |-- LALLAN
+                                |           |     |-- CHOTA LALLAN
+                                |           |-- YOGENDRA BANA
+                                |-- TH. SA. BHAGWAN SINGH JI UMATH 
+                                        |-- KU. SA. INDER SINGH
+                                        |     |-- CHHOTU
+                                        |-- KU. SA. BHUPENDRA BANA
+                                
+                            |-- SW. SHREE MOOLSINGH JI UMATH
+                                |-- TH. SA. DEVISINGH JI UMATH 
+                                |     |-- KU. SA.LAKHAN SINGH JI UMATH
+                                |     |     |-- UJJWAL SINGH
+                                |     |-- KU. SA. ALKAR SINGH JI UMATH
+                                |           |-- RAJPAL BANA
+                                |-- TH. SA. KAMAL SINGH JI UMATH
+                                        |-- KU. SA. RAJENDRA SINGH JI UMATH
+                                        |     |-- CHOTA KANHA
+                                        |     |-- VIJAYPAL
+                                        |-- KU. SA. UDAY SINGH JI UMATH
+                                            |-- CHOTA CHORA
+                    </pre>
+                </div>
+            `;
+            await updateContent(familyTreeContent);
+            hideLoading();
+        }
+
+        async function showGallery() {
+            showLoading();
+            const galleryContent = `
+                <div class="gallery animate__animated animate__fadeIn">
+                    <h2>Family Gallery</h2>
+                    <p class="welcome-text mb-2">Add your family photos here to create lasting memories.</p>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="image/bittu.jpg" alt="Family Photo Placeholder">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/vikram.png" alt="Family Photo Placeholder">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/inder singh.jpg" alt="Family Photo Placeholder">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/suraj.png" alt="Family Photo Placeholder">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/kanha.png" alt="Family Photo Placeholder">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/bhupendra.png" alt="Family Photo Placeholder">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/arjun.png" alt="Family Photo Placeholder">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/shivpal.png" alt="Family Photo Placeholder">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/tawarlal1.png" alt="Family Photo Placeholder">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/yogendra.png" alt="Family Photo Placeholder">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/ujjwal.png" alt="Family Photo Placeholder">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/jigar.jpg" alt="Family Photo Placeholder">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/bhuriya.png" alt="Family Photo Placeholder">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/car.jpg" alt="Family Photo Placeholder">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/gadi.jpg" alt="Family Photo Placeholder">
+                        </div>
+                    </div>
+                </div>
+            `;
+            await updateContent(galleryContent);
+            hideLoading();
+        }
+
+        async function showProfiles() {
+            showLoading();
+            const profilesContent = `
+                <div class="profiles animate__animated animate__fadeIn">
+                    <h2>Family Members</h2>
+                    <div class="members-list">
+                        <div class="member-card">
+                            <i class="fas fa-user-circle"></i>
+                            <h3>BITTU BANA</h3>
+                            <div class="social-links">
+                                <a href="https://wa.me/917999315464" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://twitter.com/RaviUmath" target="_blank"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.linkedin.com/in/ravi-rajput-438780317/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://github.com/RAVI-RAJPUT-UMATH" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://www.instagram.com/ravi_rajput_umath/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <i class="fas fa-user-circle"></i>
+                            <h3>VIKRAM SINGH</h3>
+                            <div class="social-links">
+                                <a href="https://wa.me/8458910275" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/mr_vikramrajput_7773/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <i class="fas fa-user-circle"></i>
+                            <h3>SURAJ SINGH</h3>
+                            <div class="social-links">
+                                <a href="https://wa.me/917047678942" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/mr_suraj_singh_bana_7773/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <i class="fas fa-user-circle"></i>
+                            <h3>INDER SINGH</h3>
+                            <div class="social-links">
+                                <a href="https://wa.me/918819958669" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/rishu_bana_143/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <i class="fas fa-user-circle"></i>
+                            <h3>TAWARLAL BANA</h3>
+                            <div class="social-links">
+                                <a href="https://wa.me/918982563482" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/balvir___bana____/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <i class="fas fa-user-circle"></i>
+                            <h3>UJJWAL BANA</h3>
+                            <div class="social-links">
+                                <a href="https://wa.me/917974142865" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/ku_ujjwal_bana_/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <i class="fas fa-user-circle"></i>
+                            <h3>YOGENDRA BANA</h3>
+                            <div class="social-links">
+                                <a href="https://wa.me/918962637681" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/yogendra_singh_rajput___/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <i class="fas fa-user-circle"></i>
+                            <h3>UDAY SINGH</h3>
+                            <div class="social-links">
+                                <a href="https://wa.me/916264015761" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/banaudaysingh152/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <i class="fas fa-user-circle"></i>
+                            <h3>SHIVPAL BANA</h3>
+                            <div class="social-links">
+                                <a href="https://wa.me/918815845928" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/shivpalsinghrajput289/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <i class="fas fa-user-circle"></i>
+                            <h3>ARJUN SINGH</h3>
+                            <div class="social-links">
+                                <a href="https://wa.me/919399831871" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/arjunsinghumath7773/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <i class="fas fa-user-circle"></i>
+                            <h3>KANHA BANA</h3>
+                            <div class="social-links">
+                                <a href="https://wa.me/918878168732" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/sk_baldevbana_0170/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <i class="fas fa-user-circle"></i>
+                            <h3>BHUPENDRA BANA</h3>
+                            <div class="social-links">
+                                <a href="https://wa.me/916264283290" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/kunwar_bhupendra_bana7773/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <i class="fas fa-user-circle"></i>
+                            <h3>RAJPAL BANA</h3>
+                            <div class="social-links">
+                                <a href="https://wa.me/918103488474" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/rajpalsingh1172/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            await updateContent(profilesContent);
+            hideLoading();
+        }
+    </script>
+</body>
+</html>
